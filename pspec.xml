@@ -1,0 +1,53 @@
+ 
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>playonlinux</Name>
+        <Homepage>http://www.playonlinux.com</Homepage>
+        <Packager>
+            <Name>Aydin ATMACA</Name>
+            <Email>aydinatmaca@gmail.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>PlayOnLinux</Icon>
+        <IsA>app:gui</IsA>
+        <IsA>app:console</IsA>
+        <Summary>Tool to help Linux users run Windows games on linux</Summary>
+        <Description>PlayOnLinux is a piece of sofware which allow you to install and use easily numerous games and softwares designed to run with Microsoft's Windows.</Description>
+        <Archive sha1sum="4f4c49dd2e331241854aba52927d28ee38903050" type="targz">http://repository.playonlinux.com/PlayOnLinux/4.2.2/PlayOnLinux_4.2.2.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">PlayOnLinux_4.1.6-disable-GL-checks.patch</Patch>
+            <Patch level="1">PlayOnLinux_4.1.6-fix-desktop-file.patch</Patch>
+            <Patch level="1">use-python2.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>playonlinux</Name>
+        <RuntimeDependencies>
+            <Dependency>links</Dependency>
+            <Dependency>wxPython</Dependency>
+            <Dependency>wine</Dependency>
+            <Dependency>wget</Dependency>
+            <Dependency>netcat</Dependency>
+            <Dependency>icoutils</Dependency>
+            <Dependency>binutils</Dependency>
+            <Dependency>imagemagick</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/playonlinux</Path>
+            <Path fileType="localedata">/usr/share/playonlinux/lang/</Path>
+            <Path fileType="localedata">/usr/share/locale/</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/PlayOnLinux.desktop">PlayOnLinux.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/share/pixmaps/playonlinux.png">playonlinux.png</AdditionalFile>
+        </AdditionalFiles> 
+    </Package>
+
+</PISI>
